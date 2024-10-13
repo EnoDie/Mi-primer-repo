@@ -15,13 +15,12 @@ class UI{
        element.innerHTML=`
           <div class="card text-center mb-4">
             <div class="card-body">
-                <strong>Product  Name</strong>:${product.name}
-                <strong>Product Price</strong>: ${product.price}
-                <strong>Product Year</strong>: ${product.year}
-                <a class="btn btn-danger" name="delete">Delete</a>
+                <strong>Nombre</strong>:${product.name}
+                <strong>Precio</strong>: ${product.price}
+                <strong>Anio</strong>: ${product.year}
+                <a class="btn btn-danger" name="delete">Borrar</a>
 
              </div>
-
              </div>
 
         `;
@@ -36,26 +35,26 @@ class UI{
     deleteProduct(element) {
         if(element.name === 'delete'){
             element.parentElement.parentElement.parentElement.remove()
-            this.showMessage('Product Delete Successfully', 'info');
+            this.showMessage('Producto borrado', 'info');
         }
     }
     showMessage(message, cssClass){
         const div =document.createElement('div');
-        div.className = alert alert- ${cssClass} mt-2;
+        div.className =  alert - {cssClass}; mt-2;
         div.appendChild(document.createTextNode(message)); 
-        //Showing in DOM
+ 
          const container= document.querySelector('.container');
          const app= document.querySelector('#App');
          container.insertBefore(div,app);
          setTimeout(function () {
             document.querySelector('.alert').remove
 
-        }, 3000);
+        }, 4000);
 
     }
 }
 
-//DOM Events 
+
 document.getElementById('product-form').addEventListener('submit', function(e){
     
     const name = document.getElementById('name').value;
@@ -66,7 +65,7 @@ document.getElementById('product-form').addEventListener('submit', function(e){
 
    const product = new Producto(name, price, year);
    console.log(product.name);
-   // let Product;
+
 
    const ui= new UI();
    if (name === '' || price === '' || year === '') {
@@ -74,9 +73,6 @@ document.getElementById('product-form').addEventListener('submit', function(e){
    }
    ui.addProduct(product);
    ui.resetForm();
-   //ui.showMessage('Product Added Successfully', 'success');
-
-
 
 
   console.log(e);
